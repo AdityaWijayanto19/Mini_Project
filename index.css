@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.container .containerForm{
+    margin-bottom: 10px;
+}
+
+.containerForm{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border: 1px solid black;
+    justify-items: center;
+    
+}
+
+.form {
+    background-color: white;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.form .iconLogin{
+    font-size: 4rem;
+    padding-bottom: 20px;
+}
+
+.username{
+    height: 30px;
+    width: 280px;
+    display: flex;
+    position: relative;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.username .iconUser{
+    position: absolute;
+    height: 30px;
+    width: 50px;
+    color: black;
+    line-height: 32px;
+    font-size: 16px;
+}
+
+.username input{
+    height: 28px;
+    width: 100%;
+    padding-left: 40px;
+    color: black;
+    outline: none;
+}
+
+.password{
+    height: 30px;
+    width: 280px;
+    display: flex;
+    position: relative;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.password .iconPass{
+    position: absolute;
+    height: 30px;
+    width: 50px;
+    color: black;
+    line-height: 32px;
+    font-size: 16px;
+}
+
+.password input{
+    height: 28px;
+    width: 100%;
+    padding-left: 40px;
+    color: black;
+    outline: none;
+}
+
+.password .showHide{
+    position: absolute;
+    right: 3%;
+    top: 37%;
+    line-height: 32px;
+    transform: translateY(-50%);
+}
+
+.showHide i{
+    padding-top: 7px;
+    font-size: 17px;
+    color: #444;
+    cursor: pointer;
+    display: none;
+}
+
+.showHide i.hide::before {
+    content: "\f070";
+    font-family: "Font Awesome 6 Free"; 
+    font-weight: 900; 
+}  
+
+input:valid~.showHide i{
+    display: block;
+}
+
+form button{
+    background-color: rgba(0, 123, 255, 1);
+    color: white;
+    height: 35px;
+    width: 280px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.containerForm .btnGoogle button{
+    background-color: rgba(0, 123, 255, 1);
+    color: white;
+    font-size: 1rem;
+    height: 40px;
+    width: 100px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btnGoogle i{
+    font-size: 1rem;
+    padding-right: 5px;
+}
+
+.containerRegist{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0;
+    padding-right: 0;
+    border: 1px solid black;
+    justify-items: center;
+}
+
+.containerRegist a{
+    text-decoration: none;
+}   
+
+
