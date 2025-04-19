@@ -1,4 +1,4 @@
-const hide = document.querySelector("#inputPass");
+const hide = document.querySelector("#password");
 const btn_show = document.querySelector("#toggleIcon");
 
     if(btn_show){

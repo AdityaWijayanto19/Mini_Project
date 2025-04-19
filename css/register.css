@@ -34,7 +34,7 @@ body{
     padding-bottom: 20px;
 }
 
-.username{
+.name{
     height: 30px;
     width: 280px;
     display: flex;
@@ -43,7 +43,7 @@ body{
     padding-left: 10px;
 }
 
-.username .iconUser{
+.name .iconUser{
     position: absolute;
     height: 30px;
     width: 50px;
@@ -52,13 +52,40 @@ body{
     font-size: 16px;
 }
 
-.username input{
+.name input{
     height: 28px;
     width: 100%;
     padding-left: 40px;
     color: black;
     outline: none;
 }
+
+.email{
+    height: 30px;
+    width: 280px;
+    display: flex;
+    position: relative;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.email .iconUser{
+    position: absolute;
+    height: 30px;
+    width: 50px;
+    color: black;
+    line-height: 32px;
+    font-size: 16px;
+}
+
+.email input{
+    height: 28px;
+    width: 100%;
+    padding-left: 40px;
+    color: black;
+    outline: none;
+}
+
 
 .password{
     height: 30px;

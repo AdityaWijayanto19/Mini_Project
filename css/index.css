@@ -34,7 +34,7 @@ body{
     padding-bottom: 20px;
 }
 
-.username{
+.email{
     height: 30px;
     width: 280px;
     display: flex;
@@ -43,7 +43,7 @@ body{
     padding-left: 10px;
 }
 
-.username .iconUser{
+.email .iconUser{
     position: absolute;
     height: 30px;
     width: 50px;
@@ -52,7 +52,7 @@ body{
     font-size: 16px;
 }
 
-.username input{
+.email input{
     height: 28px;
     width: 100%;
     padding-left: 40px;
