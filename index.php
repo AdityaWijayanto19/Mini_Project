@@ -1,42 +1,52 @@
 <?php
-session_start(); // MEMULAI SESSION UNTUK MENJALANKAN SESSION PADA HALAMAN INI
-include 'database/db.php'; // MENYERTAKAN KONEKSI KE DATABASE
+session_start(); // Mulai session di bagian atas
 
-// CEK JIKA PENGGUNA SUDAH LOGIN (JIKA SESSION 'user_id' ADA)
-if (isset($_SESSION['user_id'])) {
-    header("Location: dashboard.php"); // JIKA SUDAH LOGIN, ARRAHKAN KE HALAMAN DASHBOARD
-    exit(); // EXIT UNTUK MENGHENTIKAN PROSES PHP LANJUTAN
+// Menyertakan koneksi ke database
+include 'database/db.php'; 
+
+// Cek jika pengguna sudah login (jika session 'user_email' ada)
+if (isset($_SESSION['user_email'])) {
+    header("Location: dashboard.php"); // Jika sudah login, arahkan ke halaman dashboard
+    exit(); // Hentikan eksekusi lebih lanjut
 }
 
-// CEK JIKA FORM LOGIN DISUBMIT (DENGAN METODE POST)
+// Cek jika form login disubmit (dengan metode POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $email = isset($_POST['email']) ? $_POST['email'] : ''; // AMBIL EMAIL DARI FORM
-        $password = isset($_POST['password']) ? $_POST['password'] : ''; // AMBIL PASSWORD DARI FORM
+    $email = isset($_POST['email']) ? $_POST['email'] : ''; // Ambil email dari form
+    $password = isset($_POST['password']) ? $_POST['password'] : ''; // Ambil password dari form
 
-        // MENGAMBIL DATA PENGGUNA DARI DATABASE BERDASARKAN EMAIL
-        $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
-        $stmt->bind_param("s", $email); // MENGIKAT PARAMETER EMAIL UNTUK QUERY
-        $stmt->execute(); // MENJALANKAN QUERY
-        $result = $stmt->get_result(); // MENDAPATKAN HASIL QUERY
+    // Mengambil data pengguna dari database berdasarkan email
+    $stmt = $conn->prepare("SELECT * FROM user WHERE email = ?");
+    $stmt->bind_param("s", $email); // Mengikat parameter email untuk query
+    $stmt->execute(); // Menjalankan query
+    $result = $stmt->get_result(); // Mendapatkan hasil query
 
-        // JIKA EMAIL DITEMUKAN DI DATABASE
-        if ($result->num_rows > 0) {
-            // AMBIL DATA PENGGUNA DARI DATABASE
-            $user = $result->fetch_assoc(); // MENGAMBIL DATA PENGGUNA DARI HASIL QUERY
-        }
+    // Jika email ditemukan di database
+    if ($result->num_rows > 0) {
+        // Ambil data pengguna dari database
+        $user = $result->fetch_assoc(); // Mengambil data pengguna dari hasil query
+    }
 
-    // CEK JIKA USER DITEMUKAN DAN PASSWORD YANG DIMASUKKAN COOK DENGAN PASSWORD HASH DI DATABASE
+    // Cek jika user ditemukan dan password yang dimasukkan cocok dengan password hash di database
     if ($user && password_verify($password, $user['password'])) { 
-        $_SESSION['user_email'] = $email; // SIMPAN EMAIL PENGGUNA KE SESSION
-        $_SESSION['user_name'] = $user['name']; // SIMPAN NAMA PENGGUNA KE SESSION
-        header("Location: dashboard.php"); // REDIRECT KE HALAMAN DASHBOARD
+        // Simpan data pengguna ke session
+        $_SESSION['user_id'] = $user['id']; // Simpan ID pengguna ke session
+        $_SESSION['user_email'] = $email; // Simpan email pengguna ke session
+        $_SESSION['user_name'] = $user['name']; // Simpan nama pengguna ke session
+        $_SESSION['user_role'] = $user['role']; // Simpan role pengguna ke session
+
+        // Arahkan ke dashboard sesuai role
+        if ($_SESSION['user_role'] == 1) {
+            header("Location: dashboard.php"); // Jika admin, arahkan ke dashboard admin
+        } else {
+            header("Location: dashboard.php"); // Jika user, arahkan ke dashboard user
+        }
+        exit(); // Hentikan eksekusi lebih lanjut
     } else {
-        $error = "email atau password salah!"; // TAMPILKAN PESAN ERROR JIKA PASSWORD ATAU EMAIL SALAH
+        $error_message = "Email atau password salah!"; // Tampilkan pesan error jika password atau email salah
     }
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
