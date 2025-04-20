@@ -3,7 +3,7 @@ session_start(); // Mulai session
 
 // Cek apakah pengguna sudah login dan role yang benar
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php"); // Jika belum login, arahkan ke login
+    header("Location: index.php"); // Jika belum login, arahkan ke login
     exit();
 }
 
