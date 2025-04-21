@@ -2,9 +2,6 @@
     // MEMASUKKAN FILE KONEKSI KE DATABASE
     include ('database/db.php');
 
-    // AMBIL EMAIL PENGGUNA YANG SUDAH LOGIN (Contoh, email statis untuk testing)
-    $email = 'user@example.com'; 
-
     // SUBMIT DENGAN METODE POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // AMBIL DATA DARI FORM ATAU REQUEST USER

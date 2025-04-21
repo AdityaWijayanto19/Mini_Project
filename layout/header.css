@@ -1,0 +1,74 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 100px; /* Memberikan ruang untuk navbar */
+}
+
+/* Navbar utama */
+.navbar {   
+    background-color: rgba(52, 50, 50, 0.2);
+    color: #fff;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Menu di tengah, search di kanan */
+    position: fixed;
+    top: 0;
+    left: 50%; 
+    transform: translateX(-50%); 
+    height: 50px;
+    padding: 10px;
+    z-index: 1000;
+    border-radius: 10px; 
+    backdrop-filter: blur(5px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu di tengah */
+.nav-links {
+    flex: 1; /* Menyesuaikan lebar agar berada di tengah */
+    display: flex;
+    justify-content: center; /* Memusatkan menu */
+    gap: 20px;
+    margin-left: 10%;
+}
+
+/* Style untuk link */
+.navbar p {
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+    text-align: start;
+    padding: 10px;
+}
+
+.navbar a {
+    position: relative;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.navbar a:hover::after {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+}

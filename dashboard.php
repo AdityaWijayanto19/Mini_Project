@@ -19,8 +19,10 @@ $user_role = $_SESSION['user_role']; // Role admin (1) atau user (2)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="layout/header.css">
 </head>
 <body>
+    <?php include "layout/header.php"; ?>
     <div class="container">
         <?php
         // Cek role pengguna dan tampilkan pesan selamat datang yang berbeda
@@ -36,7 +38,7 @@ $user_role = $_SESSION['user_role']; // Role admin (1) atau user (2)
             echo "<p>Hai, User " . $user_name . "!</p>";
             echo "<p>Ini adalah halaman dashboard untuk User biasa.</p>";
             // Fitur terbatas untuk user biasa
-            echo "<p><a href='view_profile.php'>Lihat Profil</a></p>";
+            echo "<p><a href='profile.php'>Lihat Profil</a></p>";
             echo "<p><a href='edit_profile.php'>Edit Profil</a></p>";
         }
         ?>
