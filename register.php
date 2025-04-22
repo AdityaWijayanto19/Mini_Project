@@ -99,7 +99,7 @@
             </form>
         </div>
         <div class="containerLogin">
-            <p>Sudah punya akun? <a href="index.php">Masuk Akun</a></p>
+            <p>Sudah punya akun? <a href="login.php">Masuk Akun</a></p>
         </div>
     </div>
 
