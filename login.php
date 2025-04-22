@@ -21,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute(); // Menjalankan query
     $result = $stmt->get_result(); // Mendapatkan hasil query
 
+    // Inisialisasi variabel $user
+$user = null;
+
     // Jika email ditemukan di database
     if ($result->num_rows > 0) {
         // Ambil data pengguna dari database
@@ -60,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <div class="containerForm">
-            <form action="index.php" method="POST" class="form">
+            <form action="login.php" method="POST" class="form">
                 <!-- icon login -->
                 <div class="iconLogin">
                     <i class="fa-solid fa-users"></i>
